@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,8 @@ namespace UserMaintenance
             
             lblFullName.Text = Resource1.FullName; // label2
             btnAdd.Text = Resource1.Add; // button1
-            btnDelete.Text = Resource1.Delete; // button1
+            btnFile.Text = Resource1.File; 
+            btnDelete.Text = Resource1.Delete; 
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
@@ -39,7 +41,28 @@ namespace UserMaintenance
 
         private void btnFile_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var u in users)
+                {
+                    sw.Write(u.ID);
+                    sw.Write(";");
+                    sw.Write(u.FullName);
+                    sw.WriteLine();
 
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var del = listUsers.SelectedItem;
+            if (del != null)
+            {
+                users.Remove((User)del);
+            }
         }
     }
 }
