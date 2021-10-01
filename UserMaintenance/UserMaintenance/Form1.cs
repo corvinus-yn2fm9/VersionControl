@@ -22,7 +22,7 @@ namespace UserMaintenance
             
             btnAdd.Text = Resource1.Add;
             btnFile.Text = Resource1.File;
-
+            
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
             listUsers.DisplayMember = "FullName";
