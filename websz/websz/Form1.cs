@@ -18,10 +18,12 @@ namespace websz
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         
         public Form1()
         {
             InitializeComponent();
+            GetCurrencies();
             RefreshData();
         }
 
@@ -31,6 +33,7 @@ namespace websz
             GetExchange();
             dataGridView1.DataSource = Rates;
             chartRateData.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
         }
 
         public void GetExchange()
@@ -73,6 +76,8 @@ namespace websz
 
                 // Valuta
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 // Érték
@@ -81,22 +86,47 @@ namespace websz
                 if (unit != 0)
                     rate.Value = value / unit;
 
-                var series = chartRateData.Series[0];
-                series.ChartType = SeriesChartType.Line;
-                series.XValueMember = "Date";
-                series.YValueMembers = "Value";
-                series.BorderWidth = 2;
-
-                var legend = chartRateData.Legends[0];
-                legend.Enabled = false;
-
-                var chartArea = chartRateData.ChartAreas[0];
-                chartArea.AxisX.MajorGrid.Enabled = false;
-                chartArea.AxisY.MajorGrid.Enabled = false;
-                chartArea.AxisY.IsStartedFromZero = false;
+               
 
             }
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
 
+            var legend = chartRateData.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chartRateData.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
+
+        }
+        public void GetCurrencies()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request = new GetCurrenciesRequestBody();
+
+           var response = mnbService.GetCurrencies(request);
+
+            
+            var result = response.GetCurrenciesResult;
+
+           
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            
+            foreach (XmlElement item in xml.DocumentElement.ChildNodes[0])
+            {
+                string newItem = item.InnerText;
+                Currencies.Add(newItem);
+
+            }
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
