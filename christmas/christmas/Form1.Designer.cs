@@ -36,6 +36,7 @@ namespace christmas
             this.btnSelectCar = new System.Windows.Forms.Button();
             this.btnSelectBall = new System.Windows.Forms.Button();
             this.lblNext = new System.Windows.Forms.Label();
+            this.btnBallColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -83,17 +84,28 @@ namespace christmas
             // lblNext
             // 
             this.lblNext.AutoSize = true;
-            this.lblNext.Location = new System.Drawing.Point(323, 26);
+            this.lblNext.Location = new System.Drawing.Point(446, 26);
             this.lblNext.Name = "lblNext";
             this.lblNext.Size = new System.Drawing.Size(101, 20);
             this.lblNext.TabIndex = 3;
             this.lblNext.Text = "Coming next:";
+            // 
+            // btnBallColor
+            // 
+            this.btnBallColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBallColor.Location = new System.Drawing.Point(309, 26);
+            this.btnBallColor.Name = "btnBallColor";
+            this.btnBallColor.Size = new System.Drawing.Size(117, 53);
+            this.btnBallColor.TabIndex = 4;
+            this.btnBallColor.UseVisualStyleBackColor = false;
+            this.btnBallColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBallColor);
             this.Controls.Add(this.lblNext);
             this.Controls.Add(this.btnSelectBall);
             this.Controls.Add(this.btnSelectCar);
@@ -113,6 +125,7 @@ namespace christmas
         private System.Windows.Forms.Button btnSelectCar;
         private System.Windows.Forms.Button btnSelectBall;
         private System.Windows.Forms.Label lblNext;
+        private System.Windows.Forms.Button btnBallColor;
     }
 }
 
