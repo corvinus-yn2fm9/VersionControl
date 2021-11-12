@@ -37,6 +37,9 @@ namespace christmas
             this.btnSelectBall = new System.Windows.Forms.Button();
             this.lblNext = new System.Windows.Forms.Label();
             this.btnBallColor = new System.Windows.Forms.Button();
+            this.btnPresentColor2 = new System.Windows.Forms.Button();
+            this.btnPresentColor1 = new System.Windows.Forms.Button();
+            this.btnSelectPresent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -65,7 +68,7 @@ namespace christmas
             // 
             this.btnSelectCar.Location = new System.Drawing.Point(24, 26);
             this.btnSelectCar.Name = "btnSelectCar";
-            this.btnSelectCar.Size = new System.Drawing.Size(117, 53);
+            this.btnSelectCar.Size = new System.Drawing.Size(117, 76);
             this.btnSelectCar.TabIndex = 1;
             this.btnSelectCar.Text = "CAR";
             this.btnSelectCar.UseVisualStyleBackColor = true;
@@ -75,7 +78,7 @@ namespace christmas
             // 
             this.btnSelectBall.Location = new System.Drawing.Point(169, 26);
             this.btnSelectBall.Name = "btnSelectBall";
-            this.btnSelectBall.Size = new System.Drawing.Size(117, 53);
+            this.btnSelectBall.Size = new System.Drawing.Size(117, 76);
             this.btnSelectBall.TabIndex = 2;
             this.btnSelectBall.Text = "BALL";
             this.btnSelectBall.UseVisualStyleBackColor = true;
@@ -93,18 +96,51 @@ namespace christmas
             // btnBallColor
             // 
             this.btnBallColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBallColor.Location = new System.Drawing.Point(309, 26);
+            this.btnBallColor.Location = new System.Drawing.Point(169, 108);
             this.btnBallColor.Name = "btnBallColor";
-            this.btnBallColor.Size = new System.Drawing.Size(117, 53);
+            this.btnBallColor.Size = new System.Drawing.Size(117, 20);
             this.btnBallColor.TabIndex = 4;
             this.btnBallColor.UseVisualStyleBackColor = false;
             this.btnBallColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnPresentColor2
+            // 
+            this.btnPresentColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPresentColor2.Location = new System.Drawing.Point(309, 134);
+            this.btnPresentColor2.Name = "btnPresentColor2";
+            this.btnPresentColor2.Size = new System.Drawing.Size(117, 20);
+            this.btnPresentColor2.TabIndex = 5;
+            this.btnPresentColor2.UseVisualStyleBackColor = false;
+            this.btnPresentColor2.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnPresentColor1
+            // 
+            this.btnPresentColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnPresentColor1.Location = new System.Drawing.Point(309, 108);
+            this.btnPresentColor1.Name = "btnPresentColor1";
+            this.btnPresentColor1.Size = new System.Drawing.Size(117, 20);
+            this.btnPresentColor1.TabIndex = 6;
+            this.btnPresentColor1.UseVisualStyleBackColor = false;
+            this.btnPresentColor1.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnSelectPresent
+            // 
+            this.btnSelectPresent.Location = new System.Drawing.Point(309, 26);
+            this.btnSelectPresent.Name = "btnSelectPresent";
+            this.btnSelectPresent.Size = new System.Drawing.Size(117, 76);
+            this.btnSelectPresent.TabIndex = 7;
+            this.btnSelectPresent.Text = "PRESENT";
+            this.btnSelectPresent.UseVisualStyleBackColor = true;
+            this.btnSelectPresent.Click += new System.EventHandler(this.btnSelectPresent_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSelectPresent);
+            this.Controls.Add(this.btnPresentColor1);
+            this.Controls.Add(this.btnPresentColor2);
             this.Controls.Add(this.btnBallColor);
             this.Controls.Add(this.lblNext);
             this.Controls.Add(this.btnSelectBall);
@@ -126,6 +162,9 @@ namespace christmas
         private System.Windows.Forms.Button btnSelectBall;
         private System.Windows.Forms.Label lblNext;
         private System.Windows.Forms.Button btnBallColor;
+        private System.Windows.Forms.Button btnPresentColor2;
+        private System.Windows.Forms.Button btnPresentColor1;
+        private System.Windows.Forms.Button btnSelectPresent;
     }
 }
 

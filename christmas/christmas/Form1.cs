@@ -72,6 +72,15 @@ namespace christmas
             };
         }
 
+          private void btnSelectPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                RibbonColor = btnPresentColor1.BackColor,
+                BoxColor = btnPresentColor2.BackColor
+            };
+        }
+
         private void DisplayNext()
         {
             if (_nextToy != null)
@@ -92,5 +101,7 @@ namespace christmas
                 return;
             button.BackColor = colorPicker.Color;
         }
+
+      
     }
 }
